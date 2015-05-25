@@ -6,42 +6,39 @@ production grade
 
 always deployable
 
-minimum viable web app product
+minimum viable web app
 
 from day one
 
 
 
-
 #Why?
 
-Launching and pushing to production should not be a scary experience
+Launching an new app or pushing new code to production should not be a scary experience
 
 Once in production you should be able to iterate on app features quickly and confidently
 
-Once in production you should be able to measure and monitor and respond effectively
+Once in production you should be able to measure, monitor and respond effectively
 
-a one or two person startup should be able to confidently manage a deployed web app
-from low to high scale.
+You should be able to pivot your app without having to worry about recreating your environment
 
-You should be able to pivot without having to worry about recreating your environment
+one or two developers should be able to confidently manage a deployed web app
+from low to high scale
 
 
 #How?
 
-Deploy to a real production environment from day one
+Deploy to a real production environment from day one, before writing any code
 
-Build a light weight framework that allows for rapid iteration
+Use a light weight framework that allows for rapid iteration
 and deployment of small incremental application features
 
 Put in place a managed production environment to handle REAL production app
-requirements common to most web apps:
+requirements common to most web apps including:
 
--ssl security
+-SSL security
 
--background emails
-
--feature flags
+-background email delivery
 
 -logging
 
@@ -49,7 +46,7 @@ requirements common to most web apps:
 
 -alerting
 
--database backups and restores
+-simple database backups and restores
 
 -out of the box membership system with admin
 
@@ -65,8 +62,8 @@ requirements common to most web apps:
 
 -social media sharing
 
-Use a generic domain name applicable to any type of product.
 
+Use a generic domain name applicable to any type of product.
 
 #What is river?
 
@@ -95,92 +92,90 @@ you can follow your own development methodology
 
 
 
-#Components of river:
+#Components of river
 
-Web framework skelleton based on flask, SqlAlchemy and flask extensions
+Web framework skelleton based on Flask, SqlAlchemy and specific Flask extensions
 
 Task runners for database migrations and database backups\restores
 
-Configurated for Heroku production environment with:
+Heroku production environment configuration:
 
--1 web role - ($7\mo)
+-1 web role to run the web app- ($7\mo)
 
--1 worker role (optional) - (7\mo)
+-1 worker role for background emails(7\mo)
 
 -SSL add on for SSL secure access ($20\mo)
 
--postgres add on for database - (free tier)
+-postgres add on for app database ($50\mo)
 
--redis for background email deliver - (free tier)
+-redis for background email deliver (free tier)
 
--sendgrid for email sending service - (free tier)
+-sendgrid for email sending service (free tier)
 
--new relic - for monitoring and alerting - (free tier)
+-new relic - for monitoring and alerting (free tier)
 
--loggly for logging - (free tier)
+-loggly for logging (free tier)
 
 
 AWS S3 service for storing database backups
 
-Twillio for two factor auth and text messages
+Twillio for two factor auth
 
 Travis ci for continious testing
 
-github for source control
+Github for source control
 
-Dnsimple for domain name registration and SSL certifcates
+DNSimple for domain name registration and SSL certifcates
 
 
 Step by step instructions for:
 
 -purchacing and configuring a generic domain and subdomains
--including SSL enabling
--setting up email accounts with google apps
+
+-adding SSL certificate
+
+-Setting up email accounts with google apps
 
 
-starter email templates for user registration
+Starter email templates for user registration
 
-starter templates for privacy and termsSite
+Starter templates for privacy and terms of service
 
-starter templates for site maintenance page and error pages
+Starter templates for site maintenance and error pages
 
-asset compilation scripts
+Asset compilation scripts
 
-generator commands and feature specific plugin code
+Generator commands
 
 
 #Philosophy
 
+Deploy directly to production from day one
+
+Prefer function over style
+
 Eschew development best practices in favor of rapid iteration on
-user facing features.
+user facing features
 
-Be biased towards function over style.
-
-Be biased towards reduced application complexity.
-
-Deploy directly to production from day one (backed by git tags)
-
-Use a generic domain that can be re-purposed when you pivot.
-
-Platform dependance:
+Use a generic domain that can be re-purposed when you pivot
 
 Pick a production platform that reduces maintanace tasks and manages background infrastructure
+for you
 
 Use best practices for deployment efficiency and reliability
 
--Environment var based configuration
+-Environment variable based configuration
 
 -Feature flags
 
+-Enforce development and production application parity
+
+-make database backups and restores routine processes
+
+-Use a CDN for compiled assets
+
 -Automate all things possible or make it a single command process
 
--enforce dev and production application parity
-
--make database backups and restores routine processes.
-
--Adds before deletes using separate migrations when changing database schemas
-
--Use a CDN for compliled assets
 
 Embrace antipatterns in favor of agility:
 
@@ -188,7 +183,7 @@ Embrace antipatterns in favor of agility:
 
 -But not so much to have to jump around to different files constantly
 
--Fat controller - skinny model
+-Fat controller, skinny model
 
 -Single layer application - all logic in controller action
 
@@ -204,43 +199,44 @@ Embrace antipatterns in favor of agility:
 
 -No client side MVC
 
--Basic bootstrap styling
+-Use basic bootstrap styling
 
--Single file compliled assets same as in production
 
 
 Optimized for change:
 
 -less jumping around between different files to understand code and dependancies
 
--All feature logic is in one place (controller actions) so less places to change code
+-All feature logic is in one place in controller actions, so less places to change code
 
--Change in one place does not impact any other code
+-Changing code in one place in controller actions does not impact any other code
 
 -less passing around variables - helps most with dynamically typed languages
 
--Downsides - some code duplication and copy\paste
-
+-Downsides: some code duplication and copy\paste. This is somewhat mitigated by using
+extensions, helpers and expressive and readable languages like Python.
 
 
 #Developer empowerment
 
-Have system in place to allow you to work on a REAL side project with minimal
+Have a system in place to allow you to work on a REAL side project with minimal
 effort
 
 Build a web app, one fully deployable feature at a time, at your own
 pace, while building a REAL production app in the process
 
 Optimized for change:
+
 Make small changes easily while confidently pushing them to production
 
 Enable the feedback loop:
-Be confident in knowing the status and activities of your production web app.
-and be able to measure the impact of feature changes.
 
-Change your ideas and start over without having to start from scratch.
+Be confident in knowing the status and activities of your production web app
+and be able to measure the impact of feature changes
 
-Move fast, break things and fix them fast.
+Change your ideas and start over without having to start from scratch
+
+Move fast, break things and fix them fast
 
 
 #Step by step implementation(TBD):
