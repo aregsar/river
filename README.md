@@ -1,9 +1,13 @@
 #River
 
 -A process for iterating on a
+
 -production grade
+
 -always deployable
+
 -minimum viable web app product
+
 -from day one
 
 
