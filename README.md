@@ -112,7 +112,7 @@ Heroku production environment configuration:
 
 -new relic - for monitoring and alerting (free tier)
 
--loggly for logging (free tier)
+-paper trail for logging (free tier)
 
 
 AWS S3 service for storing database backups
