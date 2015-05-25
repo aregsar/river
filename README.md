@@ -1,57 +1,71 @@
 #River
 
--A process for iterating on a
+A process for iterating on a
 
--production grade
+production grade
 
--always deployable
+always deployable
 
--minimum viable web app product
+minimum viable web app product
 
--from day one
+from day one
 
 
 
 
 #Why?
 
--Launching and pushing to production should not be a scary experience
+Launching and pushing to production should not be a scary experience
 
--Once in production you should be able to iterate on app features quickly and confidently
+Once in production you should be able to iterate on app features quickly and confidently
 
--Once in production you should be able to measure and monitor and respond effectively
+Once in production you should be able to measure and monitor and respond effectively
 
--a one or two person startup should be able to confidently manage a deployed web app
+a one or two person startup should be able to confidently manage a deployed web app
 from low to high scale.
 
--You should be able to pivot without having to worry about recreating your environment
+You should be able to pivot without having to worry about recreating your environment
 
 
 #How?
 
--Deploy to a real production environment from day one
+Deploy to a real production environment from day one
 
--Build a light weight framework that allows for rapid iteration
+Build a light weight framework that allows for rapid iteration
 and deployment of small incremental application features
 
--Put in place a managed production environment to handle REAL production app
+Put in place a managed production environment to handle REAL production app
 requirements common to most web apps:
-ssl security
-background emails
-feature flags
-logging
-failure monitoring
-alerting
-database backups and restores
-out of the box membership system with admin
-analytics
-terms of service and privacy boilerplate
-two factor authentication
-subdomain support
-email and contact forms
-social media sharing
 
--Use a generic domain name applicable to any type of product.
+-ssl security
+
+-background emails
+
+-feature flags
+
+-logging
+
+-failure monitoring
+
+-alerting
+
+-database backups and restores
+
+-out of the box membership system with admin
+
+-analytics
+
+-terms of service and privacy boilerplate
+
+-two factor authentication
+
+-subdomain support
+
+-email and contact forms
+
+-social media sharing
+
+Use a generic domain name applicable to any type of product.
 
 
 #What (is it)?
