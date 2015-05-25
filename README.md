@@ -28,7 +28,7 @@ from low to high scale
 
 #How?
 
-Deploy to a real production environment from day one, before writing any code
+Deploy to a REAL production environment from day one, before writing any code
 
 Use a light weight framework that allows for rapid iteration
 and deployment of small incremental application features
@@ -75,14 +75,12 @@ A production platform specification
 
 A set of task oriented prescriptions
 
-A set of step by step instructions
-
-A set of templates and code snippets
+A set of templates, plugins and extensions
 
 A set of command line utilities and generators
 
-#Prescriptive yet flexible
 
+#Prescriptive yet flexible
 
 River is an open source project - you can fork it
 
@@ -102,7 +100,7 @@ Heroku production environment configuration:
 
 -1 web role to run the web app- ($7\mo)
 
--1 worker role for background emails(7\mo)
+-1 worker role for background emails($7\mo)
 
 -SSL add on for SSL secure access ($20\mo)
 
