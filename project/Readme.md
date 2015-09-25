@@ -1,3 +1,87 @@
+
+
+
+//http://stackoverflow.com/questions/4239825/static-files-in-flask-robot-txt-sitemap-xml-mod-wsgi
+
+//https://devcenter.heroku.com/articles/getting-started-with-python-o#local-workstation-setup
+//web: gunicorn -b "0.0.0.0:$PORT" -w 4 manage:app --log-file=-
+
+
+===========================================================
+
+//heroku plugins:install git://github.com/heroku/heroku-pipeline.git
+
+
+git clone https://github.com/heroku/riverbed.git
+cd riverbed
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+pip freeze > requirements.txt
+heroku login
+heroku local
+heroku create myapp
+git push heroku master
+heroku ps:scale web=1
+heroku logs --tail
+heroku ps
+heroku open
+heroku plugins:install heroku-pipelines
+heroku fork --from riverbed --to riverbed-stage
+heroku info -a riverbed-stage
+git remote add riverbed-stage git@heroku.com:riverbed-stage.git
+git push riverbed-stage master
+git remote rename heroku riverbed-prod
+#git remote rename riverbed-stage heroku
+heroku ps:scale web=1 -a riverbed-stage
+heroku pipelines:create -a riverbed
+#heroku pipelines:add -a example-staging example
+heroku pipeline:add riverbed
+heroku pipeline
+heroku pipeline:add riverbed-stage -s staging
+heroku pipeline
+heroku pipeline:diff
+==========================================================
+
+#promote staging to prod
+
+heroku maintenance:on -a riverbed
+heroku scale worker=0 -a riverbed
+heroku run python manage.py db:migrate -a riverbed
+heroku pipeline:promote -a riverbed-stage
+#heroku restart -a riverbed
+heroku scale worker=1 -a riverbed
+heroku maintenance:off -a riverbed
+
+===========================================================
+
+//http://telliott.io/2015/09/07/a-first-look-at-pipelines-on-heroku.html
+//https://devcenter.heroku.com/articles/pipelines
+
+
+
+heroku releases --app riverbed
+heroku releases --app riverbed-stage
+
+
+heroku help pipelines
+
+#one off dynos
+heroku run python
+
+#check the logs
+heroku logs
+
+//https://devcenter.heroku.com/articles/error-pages#customize-pages
+heroku config:set \
+  ERROR_PAGE_URL=//s3.amazonaws.com/<your_bucket>/your_error_page.html \
+  MAINTENANCE_PAGE_URL=//s3.amazonaws.com/<your_bucket>/your_maintenance_page.html
+
+===========================================================
+
+
+
+
 River
 A project template for rapid MVP development with the Python Flask Micro
 Web Framework

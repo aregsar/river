@@ -1,13 +1,14 @@
 from flask import Flask
 app = Flask(__name__)
 
+##
+#register blueprints
+##
 
+from app.blueprints.home_blueprint import home
+app.register_blueprint(account)
 
-
-#blueprints
 from app.blueprints.account_blueprint import account
-if True:#todo: add feature flag support for registering blueprints
-    app.register_blueprint(account)
+app.register_blueprint(account)
 
-#leave this comment in for adding blueprints via river cli
-##blueprints
+

@@ -1,0 +1,8 @@
+venv
+*.DS_Store
+*.pyc
+*.pyo
+.env
+.git
+node_modules/
+app/static/bower_components/
